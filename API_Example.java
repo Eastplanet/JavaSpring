@@ -13,7 +13,7 @@ public class HelloController {
 
 
     /*
-        @REsponseBody로 http통신 프로토콜의 body부에 데이터를 직접 넣어주겠다는걸 명시
+        @ResponseBody로 http통신 프로토콜의 body부에 데이터를 직접 넣어주겠다는걸 명시
         MVC와 달리 API 방식은 viewResolver가 아니라 String은 StringConverter가 객체는 JsonConverter가 변환한다.
 
         MVC에서 return "hello";를 통해 hello.html으로 전달?되었지만
@@ -22,6 +22,8 @@ public class HelloController {
 
 
      */
+    
+    //문자열 리턴
 
     @GetMapping("hello-string")
     @ResponseBody
@@ -29,9 +31,7 @@ public class HelloController {
         return "hello " + name;
     }
 
-    /*
-
-     */
+    //객체 리턴
 
     @GetMapping("hello-api")
     @ResponseBody
