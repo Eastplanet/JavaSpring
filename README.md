@@ -1,68 +1,42 @@
 # JavaSpring 입문
 
-목차
+#View 환경설정
 
-프로젝트 환경설정
+resources/static/index.html
+  <!DOCTYPE HTML>
+  <html>
+  <head>
+   <title>Hello</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+  Hello
+  <a href="/hello">hello</a>
+  </body>
+  </html>
+스프링 부트가 제공하는 Welcome Page기능을 이용하기 위해서는 static/index.html을 만들어야 한다.
+위의 href로 /hello로 가게된다.
 
-프로젝트 생성
+  @Controller
+  public class HelloController {
+   @GetMapping("hello")
+   public String hello(Model model) {
+   model.addAttribute("data", "hello!!");
+   return "hello";
+   }
+  }
+~/hello 와같이 get방식으로 들어왔다면 위의 코드를 실행한다. (Model ??) model에 data라는 키에 hello!!데이터를 추가한뒤 리턴을 통해 hello.html로 가게된다.
 
-라이브러리 살펴보기
 
-View 환경설정
-웰컴 페이지를 만들어봄
-
-빌드하고 실행하기스프링 웹 개발 기초
-
-정적 컨텐츠
-
-MVC와 템플릿 엔진
-
-API
-
-회원 관리 예제 - 백엔드 개발
-
-비즈니스 요구사항 정리
-
-회원 도메인과 리포지토리 만들기
-
-회원 리포지토리 테스트 케이스 작성
-
-회원 서비스 개발
-
-회원 서비스 테스트
-
-스프링 빈과 의존관계
-
-컴포넌트 스캔과 자동 의존관계 설정
-
-자바 코드로 직접 스프링 빈 등록하기
-
-회원 관리 예제 - 웹 MVC 개발
-
-회원 웹 기능 - 홈 화면 추가
-
-회원 웹 기능 - 등록
-
-회원 웹 기능 - 조회
-
-스프링 DB 접근 기술
-
-H2 데이터베이스 설치
-
-순수 Jdbc
-
-스프링 통합 테스트
-
-스프링 JdbcTemplate
-
-JPA
-
-스프링 데이터 JPA
-
-AOP
-
-AOP가 필요한 상황
-
-AOP 적용
-
-다음으로
+  resources/templates/hello.html
+  <!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+   <title>Hello</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+  <p th:text="'안녕하세요. ' + ${data}" >안녕하세요. 손님</p>
+  </body>
+  </html>
+타임리프 템플릿을 이용하여 ${key}를 이용하여 값을 꺼낼수 있다.
