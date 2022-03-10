@@ -14,6 +14,8 @@ resources/static/index.html
   <a href="/hello">hello</a>
   </body>
   </html>
+  
+  
 스프링 부트가 제공하는 Welcome Page기능을 이용하기 위해서는 static/index.html을 만들어야 한다.
 위의 href로 /hello로 가게된다.
 
