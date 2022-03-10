@@ -3,4 +3,6 @@ SHITF + F6 : 이름 한꺼번에 변경
 Ctrl + Alt + V : 리턴 값 생성
 Ctrl + Alt + Shitf + T : 메소드화
 Ctrl + Shitf + T : 테스트 생성
+Ctrl + p : 필요한 함수 인자 확인
+Ctrl + E : 최근에 본 파일 목록
 
